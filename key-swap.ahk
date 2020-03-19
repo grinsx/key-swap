@@ -14,7 +14,7 @@ RControl & x::Send {LControl down}{End down}{End up}{LControl u}
 RControl & q::Send {LControl down}{Home down}{Home up}{LControl up} 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;第二个功能：快捷键调整当前窗口的大小宽窄、vim方式移动窗口
+;第二个功能：快捷键调整当前窗口到整个屏幕的左、中、右的1/3 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #+u:: 
 	WinMove,A,,0,0,(A_ScreenWidth/3-25),(A_ScreenHeight-33)
@@ -31,7 +31,7 @@ return
 	Send #+{Up}
 return
 
-;win+Shift+m/,/. 移动当前窗口至屏幕下半部分的左中右1/3
+;win+Shift+m/,/. 把当前窗口占满左中右边1/3，窗口高度为屏幕高度的1/3，窗口位置为屏幕高度的下1/3
 #+m:: WinMove,A,,0,(A_ScreenHeight/2-33),(A_ScreenWidth/3),(A_ScreenHeight/2)
 #+,::WinMove,A,,(A_ScreenWidth/3),(A_ScreenHeight/2-33),(A_ScreenWidth/3),(A_ScreenHeight/2)
 #+.::WinMove,A,,(2*A_ScreenWidth/3),(A_ScreenHeight/2-33),(A_ScreenWidth/3),(A_ScreenHeight/2)
@@ -39,7 +39,7 @@ return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;第三个功能：
 ;1. Ctrl+Win+[]-+使当前窗口变窄宽小大百分之十 
-;2. Ctrl+Win+hjkl使当前窗口向左下上右移动屏幕宽度的十分之一
+;2. Ctrl+Win+hjkl使当前窗口向左下上右移动屏幕宽度的八分之一
 ;3. Ctrl+Win+a 切换当前窗口永远在最前面
 ;4. Ctrl+Win+4，5，6，7，8，9，0 设置当前窗口透明度40%~100%永远在最前面
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -101,10 +101,13 @@ return
 
 #+a:: WinSet, AlwaysOnTop, toggle, A
 
-#+9:: WinSet, Transparent, 250*0.9, A ; Make the window %90 transparent.
-#+8:: WinSet, Transparent, 250*0.8, A ; Make the window %80 transparent.
-#+7:: WinSet, Transparent, 250*0.7, A ; Make the window %70 transparent.
-#+6:: WinSet, Transparent, 250*0.6, A ; Make the window %60 transparent.
-#+5:: WinSet, Transparent, 250*0.5, A ; Make the window 50% transparent.
-#+4:: WinSet, Transparent, 250*0.4, A ; Make the window 40% transparent.
-#+0:: WinSet, Transparent, 255, A ; Make the window none transparent.
+#+9:: WinSet, Transparent, 250, A
+#+8:: WinSet, Transparent, 245, A
+#+7:: WinSet, Transparent, 235, A
+#+6:: WinSet, Transparent, 210, A
+#+5:: WinSet, Transparent, 175, A 
+#+4:: WinSet, Transparent, 150, A
+#+3:: WinSet, Transparent, 100, A
+#+2:: WinSet, Transparent, 50, A
+#+1:: WinSet, Transparent, 5, A
+#+0:: WinSet, Transparent, 255, A
