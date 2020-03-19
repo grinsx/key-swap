@@ -1,2 +1,5 @@
 # key-swap
-key binding, key resizing active window etc. work on autohotkey in windows 10
+1. 绑定emac-like按键至组合键：右ctrl+aefb等实现快速光标移动，**右Ctrl要用右手掌缘按**
+2. 快捷键调整当前窗口的大小、宽窄、居中，并以vim方式移动窗口，
+3. 设置/取消当前窗口永远在最前面
+4. 设置当前窗口透明度0%~60%
