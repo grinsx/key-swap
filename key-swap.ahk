@@ -1,40 +1,60 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;第一个功能：绑定emac-like按键至右组合键：ctrl+*
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
-RControl & b::Send {Left}
-RControl & f::Send {Right}
-RControl & w::Send {Up}
-RControl & s::Send {Down}
-RControl & d::Send {Del}
-RControl & a::Send {Home}
-RControl & e::Send {End}
-RControl & r::Send {PgUp}
-RControl & v::Send {PgDn}
-RControl & x::Send {LControl down}{End down}{End up}{LControl u}
-RControl & q::Send {LControl down}{Home down}{Home up}{LControl up} 
+>^b::Send {Left}
+>!>^b::Send +{Left}
+
+>^f::Send {Right}
+>!>^f::Send +{Right}
+
+>^w::Send {Up}
+>!>^w::Send +{Up}
+
+>^s::Send {Down}
+>!>^s::Send +{Down}
+
+>^a::Send {Home}
+>!>^a::Send +{Home}
+
+>^e::Send {End}
+>!>^e::Send +{End}
+
+>^r::Send {PgUp}
+>!>^r::Send +{PgUp}
+
+>^v::Send {PgDn}
+>!>^v::Send +{PgDn}
+
+>^x::Send ^{End}
+>!>^x::Send ^+{End}
+
+>^q::Send ^{Home}
+>!>^q::Send ^+{Home}
+
+>^d::Send {Del}
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;第二个功能：快捷键调整当前窗口到整个屏幕的左、中、右的1/3 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #+u:: 
-	WinMove,A,,0,0,(A_ScreenWidth/3-25),(A_ScreenHeight-33)
+	WinMove,A,,0,0,(A_ScreenWidth/3-25),(A_ScreenHeight-35)
 	Send #+{Up}
 return
 
 #+i::
-	WinMove,A,,(A_ScreenWidth/3-40),0,(A_ScreenWidth/3+100),(A_ScreenHeight-33)
+	WinMove,A,,(A_ScreenWidth/3-40),0,(A_ScreenWidth/3+100),(A_ScreenHeight-35)
 	Send #+{Up}
 return
 
 #+o::
-	WinMove,A,,(2*A_ScreenWidth/3+45),0,(A_ScreenWidth/3-38),(A_ScreenHeight-33)
+	WinMove,A,,(2*A_ScreenWidth/3+45),0,(A_ScreenWidth/3-38),(A_ScreenHeight-35)
 	Send #+{Up}
 return
 
 ;win+Shift+m/,/. 把当前窗口占满左中右边1/3，窗口高度为屏幕高度的1/3，窗口位置为屏幕高度的下1/3
-#+m:: WinMove,A,,0,(A_ScreenHeight/2-33),(A_ScreenWidth/3),(A_ScreenHeight/2)
-#+,::WinMove,A,,(A_ScreenWidth/3),(A_ScreenHeight/2-33),(A_ScreenWidth/3),(A_ScreenHeight/2)
-#+.::WinMove,A,,(2*A_ScreenWidth/3),(A_ScreenHeight/2-33),(A_ScreenWidth/3),(A_ScreenHeight/2)
+#+m:: WinMove,A,,0,(A_ScreenHeight/2-35),(A_ScreenWidth/3),(A_ScreenHeight/2)
+#+,::WinMove,A,,(A_ScreenWidth/3),(A_ScreenHeight/2-35),(A_ScreenWidth/3),(A_ScreenHeight/2)
+#+.::WinMove,A,,(2*A_ScreenWidth/3),(A_ScreenHeight/2-35),(A_ScreenWidth/3),(A_ScreenHeight/2)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;第三个功能：
@@ -96,7 +116,7 @@ return
 
 #+n::
 WinGetPos,,, Width, Height, A
-WinMove, A,, (A_ScreenWidth/2)-(Width/2), (A_ScreenHeight/2)-(Height/2)
+WinMove, A,, A_ScreenWidth/3, A_ScreenHeight/4, A_ScreenWidth/3, A_ScreenHeight/2
 return
 
 #+a:: WinSet, AlwaysOnTop, toggle, A
