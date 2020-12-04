@@ -2,34 +2,34 @@
 ;第一个功能：绑定emac-like按键至右组合键：ctrl+*
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 >^b::Send {Left}
->!>^b::Send +{Left}
+<^>^b::Send +{Left}
 
 >^f::Send {Right}
->!>^f::Send +{Right}
+<^>^f::Send +{Right}
 
 >^w::Send {Up}
->!>^w::Send +{Up}
+<^>^w::Send +{Up}
 
 >^s::Send {Down}
->!>^s::Send +{Down}
+<^>^s::Send +{Down}
 
 >^a::Send {Home}
->!>^a::Send +{Home}
+<^>^a::Send +{Home}
 
 >^e::Send {End}
->!>^e::Send +{End}
+<^>^e::Send +{End}
 
 >^r::Send {PgUp}
->!>^r::Send +{PgUp}
+<^>^r::Send +{PgUp}
 
 >^v::Send {PgDn}
->!>^v::Send +{PgDn}
+<^>^v::Send +{PgDn}
 
 >^x::Send ^{End}
->!>^x::Send ^+{End}
+<^>^x::Send ^+{End}
 
 >^q::Send ^{Home}
->!>^q::Send ^+{Home}
+<^>^q::Send ^+{Home}
 
 >^d::Send {Del}
 
